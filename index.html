@@ -17,22 +17,21 @@
 </head>
 
 <body onload="getLocation()">
-
-
     <!-- Header section -->
     <header>
+        <!-- navigation area -->
         <nav class="d-flex align-items-center">
             <i class='fas fa-cloud-moon mr-2' style='font-size:36px'></i>
             <a class="title" href="#">WeatherApp</a>
         </nav>
+
+        <!-- Banner area -->
         <div class="banner row">
             <div class="col-12 text-center">
                 <h1>Welcome to Weather App</h1>
                 <br>
                 <div class="row d-flex justify-content-center align-items-center">
                     <input id="weatherInput" class="input form-control w-50" type="text" name="" id="input">
-                    &nbsp;
-                    &nbsp;
                     <button id="searchButton" class="btn btn-lg btn-dark rounded"><i class="fas fa-search"></i></button>
                 </div>
                 <p>Search by City name</p>
@@ -40,16 +39,45 @@
         </div>
     </header>
 
-    <section id="showWeather" class="d-flex justify-content-center">
-        <div class="weatherContent row">
+    <!-- Show weather section -->
+    <section id="showWeather" class="row d-flex justify-content-around">
+        <!-- Country info -->
+        <div class="content col-lg-5 col-10 d-flex flex-column justify-content-center align-items-center">
+            <div class="countryLocation d-flex justify-content-around align-items-center">
+                <img id="flagImg" src="https://www.countryflags.io/bd/flat/64.png">
+                <div class="d-flex flex-column">
+                    <p>Lat: <span id="lat">-----------</span></p>
+                    <p>Long: <span id="long">----------</span></p>
+                </div>
+            </div>
+            <h2 id="state">---</h2>
+            <br>
+            <br>
+            <div>
+                <img class="sunriseAndSunset" src="./images/sunrise.gif" alt="">&nbsp;
+                <span id="sunrise">Sunrise</span>
+            </div>
+            <br>
+            <div>
+                <img class="sunriseAndSunset" src="./images/sunset.gif" alt="">&nbsp;
+                <span id="sunset">Sunset</span>
+            </div>
+        </div>
+
+        <!-- Weather info -->
+        <div class="content col-lg-5 col-10 row">
             <div class="col-6 d-flex flex-column justify-content-center align-items-center">
                 <h2 id="location">Loading....</h2>
+                <br>
                 <h5 id="weekday">----</h5>
                 <h5 id="date">----</h5>
                 <h5 id="time"><span>--</span></h5>
                 <h5 id="weather-summery">---</h5>
-                <h1><span id="temperature">--</span> °C</h1>
-
+                <br>
+                <br>
+                <h1><span id="temperatureCel">--</span> °C</h1>
+                <br>
+                <h1><span id="temperatureFer">--</span> °F</h1>
             </div>
 
             <div class="col-6 d-flex flex-column justify-content-center align-items-center">
@@ -64,6 +92,7 @@
         </div>
     </section>
 
+    <!-- Footer section -->
     <footer>
         <div class="text-center">
             <p>All right reserved by <span style="color: orange;">Md. Jahedul Hoque</span></p>
