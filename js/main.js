@@ -5,9 +5,13 @@ const weatherContent = document.querySelector(".weatherContent");
 async function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(setWeatherByPosition, function (
-      error
+      err
     ) {
-      alert("Your data is not loaded");
+      if (err.code == 1) {
+        alert("Error: Access is denied!");
+      } else if (err.code == 2) {
+        alert("Error: Position is unavailable!");
+      }
     });
   } else {
     weatherContent.innerHTML = "Geolocation is not supported by this browser.";
@@ -22,10 +26,10 @@ const searchButton = document.getElementById("searchButton");
 async function setWeatherByPosition(position) {
   const res = await fetch(
     "https://api.openweathermap.org/data/2.5/weather?lat=" +
-      position.coords.latitude +
-      "&lon=" +
-      position.coords.longitude +
-      "&appid=f06e09d7f145979f8db2e2153a916104"
+    position.coords.latitude +
+    "&lon=" +
+    position.coords.longitude +
+    "&appid=f06e09d7f145979f8db2e2153a916104"
   );
   const weather = await res.json();
   setValues(weather);
@@ -55,8 +59,8 @@ searchButton.addEventListener("click", async function () {
 async function setWeatherByCityName(cityName) {
   const res = await fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-      cityName +
-      "&appid=f06e09d7f145979f8db2e2153a916104"
+    cityName +
+    "&appid=f06e09d7f145979f8db2e2153a916104"
   );
   const weather = await res.json();
   return weather;
