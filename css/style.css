@@ -5,10 +5,12 @@ body {
 
 /* Header section */
 header {
-  background: url("../images/banner.jpg");
-  background-attachment: fixed;
-  background-size: 100%;
+  background: url("../images/banner.jpg") no-repeat center center fixed;
   height: 450px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 nav {
@@ -49,9 +51,11 @@ nav a {
 #showWeather {
   height: 800px;
   padding: 2%;
-  background-image: url("../images/dark.jpeg");
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background: url("../images/dark.jpeg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /* Country Info */
@@ -122,8 +126,9 @@ footer p {
   #showWeather {
     height: 1400px;
     padding: 2%;
-    background-image: url("../images/dark.jpeg");
-    background-size: 100%;
-    background-repeat: repeat;
+  }
+
+  #location {
+    font-size: 1.5rem;
   }
 }
